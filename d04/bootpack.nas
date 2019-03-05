@@ -3,31 +3,18 @@
 [OPTIMIZE 1]
 [OPTION 1]
 [BITS 32]
-	EXTERN	_font_A.0
 	EXTERN	_io_hlt
 	EXTERN	_io_load_eflags
 	EXTERN	_io_cli
 	EXTERN	_io_out8
 	EXTERN	_io_store_eflags
+	EXTERN	_hankaku
 [FILE "bootpack.c"]
 [SECTION .data]
-_font_A.0:
-	DB	0
-	DB	24
-	DB	24
-	DB	24
-	DB	24
-	DB	36
-	DB	36
-	DB	36
-	DB	36
-	DB	126
-	DB	66
-	DB	66
-	DB	66
-	DB	-25
-	DB	0
-	DB	0
+LC0:
+	DB	"ABC 123",0x00
+LC1:
+	DB	"Haribote OS.",0x00
 [SECTION .text]
 	GLOBAL	_HariMain
 _HariMain:
@@ -40,20 +27,37 @@ _HariMain:
 	PUSH	EAX
 	PUSH	DWORD [4088]
 	CALL	_init_screen
-	PUSH	_font_A.0
+	PUSH	LC0
 	PUSH	7
-	PUSH	100
-	PUSH	100
+	PUSH	8
+	PUSH	8
 	MOVSX	EAX,WORD [4084]
 	PUSH	EAX
 	PUSH	DWORD [4088]
-	CALL	_putfont8
+	CALL	_putfonts8_asc
 	ADD	ESP,36
+	PUSH	LC1
+	PUSH	0
+	PUSH	31
+	PUSH	31
+	MOVSX	EAX,WORD [4084]
+	PUSH	EAX
+	PUSH	DWORD [4088]
+	CALL	_putfonts8_asc
+	PUSH	LC1
+	PUSH	7
+	PUSH	30
+	PUSH	30
+	MOVSX	EAX,WORD [4084]
+	PUSH	EAX
+	PUSH	DWORD [4088]
+	CALL	_putfonts8_asc
+	ADD	ESP,48
 L2:
 	CALL	_io_hlt
 	JMP	L2
 [SECTION .data]
-_table_rgb.1:
+_table_rgb.0:
 	DB	0
 	DB	0
 	DB	0
@@ -107,7 +111,7 @@ _table_rgb.1:
 _init_palette:
 	PUSH	EBP
 	MOV	EBP,ESP
-	PUSH	_table_rgb.1
+	PUSH	_table_rgb.0
 	PUSH	15
 	PUSH	0
 	CALL	_set_palette
@@ -444,3 +448,43 @@ L33:
 	POP	EDI
 	POP	EBP
 	RET
+	GLOBAL	_putfonts8_asc
+_putfonts8_asc:
+	PUSH	EBP
+	MOV	EBP,ESP
+	PUSH	EDI
+	PUSH	ESI
+	PUSH	EBX
+	PUSH	ESI
+	MOV	EBX,DWORD [28+EBP]
+	MOV	AL,BYTE [24+EBP]
+	MOV	BYTE [-13+EBP],AL
+	MOV	ESI,DWORD [16+EBP]
+	MOV	EDI,DWORD [20+EBP]
+	CMP	BYTE [EBX],0
+	JNE	L51
+L53:
+	LEA	ESP,DWORD [-12+EBP]
+	POP	EBX
+	POP	ESI
+	POP	EDI
+	POP	EBP
+	RET
+L51:
+	MOVZX	EAX,BYTE [EBX]
+	SAL	EAX,4
+	INC	EBX
+	ADD	EAX,_hankaku
+	PUSH	EAX
+	MOVSX	EAX,BYTE [-13+EBP]
+	PUSH	EAX
+	PUSH	EDI
+	PUSH	ESI
+	ADD	ESI,8
+	PUSH	DWORD [12+EBP]
+	PUSH	DWORD [8+EBP]
+	CALL	_putfont8
+	ADD	ESP,24
+	CMP	BYTE [EBX],0
+	JNE	L51
+	JMP	L53

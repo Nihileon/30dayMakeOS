@@ -1,22 +1,9 @@
 	.file	"bootpack.c"
 	.data
-_font_A.0:
-	.byte	0
-	.byte	24
-	.byte	24
-	.byte	24
-	.byte	24
-	.byte	36
-	.byte	36
-	.byte	36
-	.byte	36
-	.byte	126
-	.byte	66
-	.byte	66
-	.byte	66
-	.byte	-25
-	.byte	0
-	.byte	0
+LC0:
+	.ascii "ABC 123\0"
+LC1:
+	.ascii "Haribote OS.\0"
 	.text
 	.balign 2
 .globl _HariMain
@@ -31,20 +18,37 @@ _HariMain:
 	pushl	%eax
 	pushl	4088
 	call	_init_screen
-	pushl	$_font_A.0
+	pushl	$LC0
 	pushl	$7
-	pushl	$100
-	pushl	$100
+	pushl	$8
+	pushl	$8
 	movswl	4084,%eax
 	pushl	%eax
 	pushl	4088
-	call	_putfont8
+	call	_putfonts8_asc
 	addl	$36, %esp
+	pushl	$LC1
+	pushl	$0
+	pushl	$31
+	pushl	$31
+	movswl	4084,%eax
+	pushl	%eax
+	pushl	4088
+	call	_putfonts8_asc
+	pushl	$LC1
+	pushl	$7
+	pushl	$30
+	pushl	$30
+	movswl	4084,%eax
+	pushl	%eax
+	pushl	4088
+	call	_putfonts8_asc
+	addl	$48, %esp
 L2:
 	call	_io_hlt
 	jmp	L2
 	.data
-_table_rgb.1:
+_table_rgb.0:
 	.byte	0
 	.byte	0
 	.byte	0
@@ -100,7 +104,7 @@ _table_rgb.1:
 _init_palette:
 	pushl	%ebp
 	movl	%esp, %ebp
-	pushl	$_table_rgb.1
+	pushl	$_table_rgb.0
 	pushl	$15
 	pushl	$0
 	call	_set_palette
@@ -445,12 +449,54 @@ L33:
 	popl	%edi
 	popl	%ebp
 	ret
+	.balign 2
+.globl _putfonts8_asc
+	.def	_putfonts8_asc;	.scl	2;	.type	32;	.endef
+_putfonts8_asc:
+	pushl	%ebp
+	movl	%esp, %ebp
+	pushl	%edi
+	pushl	%esi
+	pushl	%ebx
+	pushl	%esi
+	movl	28(%ebp), %ebx
+	movb	24(%ebp), %al
+	movb	%al, -13(%ebp)
+	movl	16(%ebp), %esi
+	movl	20(%ebp), %edi
+	cmpb	$0, (%ebx)
+	jne	L51
+L53:
+	leal	-12(%ebp), %esp
+	popl	%ebx
+	popl	%esi
+	popl	%edi
+	popl	%ebp
+	ret
+L51:
+	movzbl	(%ebx), %eax
+	sall	$4, %eax
+	incl	%ebx
+	addl	$_hankaku, %eax
+	pushl	%eax
+	movsbl	-13(%ebp),%eax
+	pushl	%eax
+	pushl	%edi
+	pushl	%esi
+	addl	$8, %esi
+	pushl	12(%ebp)
+	pushl	8(%ebp)
+	call	_putfont8
+	addl	$24, %esp
+	cmpb	$0, (%ebx)
+	jne	L51
+	jmp	L53
 	.def	_io_store_eflags;	.scl	2;	.type	32;	.endef
 	.def	_io_out8;	.scl	2;	.type	32;	.endef
 	.def	_io_cli;	.scl	2;	.type	32;	.endef
 	.def	_io_load_eflags;	.scl	2;	.type	32;	.endef
 	.def	_set_palette;	.scl	2;	.type	32;	.endef
 	.def	_io_hlt;	.scl	2;	.type	32;	.endef
-	.def	_putfont8;	.scl	2;	.type	32;	.endef
+	.def	_putfonts8_asc;	.scl	2;	.type	32;	.endef
 	.def	_init_screen;	.scl	2;	.type	32;	.endef
 	.def	_init_palette;	.scl	2;	.type	32;	.endef

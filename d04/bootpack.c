@@ -26,8 +26,10 @@ void init_palette(void);
 void set_palette(int start, int end, unsigned char *rgb);
 void boxfill8(unsigned char *vram, int xsize, unsigned char c, int x0, int y0,
               int x1, int y1);
-void putfont8(char *varm, int xsize, int x, int y, char c, char *font);
 void init_screen(char *varm, int x, int y);
+void putfont8(char *varm, int xsize, int x, int y, char c, char *font);
+void putfonts8_asc(char *vram, int xsize, int x, int y, char c,
+                   unsigned char *s);
 
 /* 是函数声明却不用{}，而用;，这表示的意思是：
         函数在别的文件中，你自己找一下 */
@@ -40,15 +42,17 @@ struct BOOTINFO {
 
 void HariMain(void)
 {
-    struct BOOTINFO *binfo = (struct BOOTINFO *) 0x0ff0;
-    static char font_A[16] = {0x00, 0x18, 0x18, 0x18, 0x18, 0x24, 0x24, 0x24,
-                              0x24, 0x7e, 0x42, 0x42, 0x42, 0xe7, 0x00, 0x00};
+    struct BOOTINFO *binfo = (struct BOOTINFO *)0x0ff0;
 
     init_palette();
     init_screen(binfo->vram, binfo->scrnx, binfo->scrny);
-    putfont8(binfo->vram, binfo->scrnx, 10, 10, COL8_FFFFFF, font_A);
+
+	putfonts8_asc(binfo->vram, binfo->scrnx,  8,  8, COL8_FFFFFF, "ABC 123");
+	putfonts8_asc(binfo->vram, binfo->scrnx, 31, 31, COL8_000000, "Haribote OS.");
+	putfonts8_asc(binfo->vram, binfo->scrnx, 30, 30, COL8_FFFFFF, "Haribote OS.");
     for (;;) {
-        io_hlt(); }
+        io_hlt();
+    }
 }
 
 void init_palette(void)
@@ -102,7 +106,8 @@ void boxfill8(unsigned char *vram, int xsize, unsigned char c, int x0, int y0,
     return;
 }
 
-void init_screen(char *vram, int x, int y){
+void init_screen(char *vram, int x, int y)
+{
 
     boxfill8(vram, x, COL8_008484, 0, 0, x - 1, y - 29);
     boxfill8(vram, x, COL8_C6C6C6, 0, y - 28, x - 1, y - 28);
@@ -154,6 +159,17 @@ void putfont8(char *vram, int xsize, int x, int y, char c, char *font)
         if ((d & 0x01) != 0) {
             p[7] = c;
         }
+    }
+    return;
+}
+
+void putfonts8_asc(char *vram, int xsize, int x, int y, char c,
+                   unsigned char *s)
+{
+    extern char hankaku[4096];
+    for (; *s != 0x00; s++) {
+        putfont8(vram, xsize, x, y, c, hankaku + *s * 16);
+        x += 8;
     }
     return;
 }
