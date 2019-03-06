@@ -1,9 +1,7 @@
 	.file	"bootpack.c"
 	.data
 LC0:
-	.ascii "ABC 123\0"
-LC1:
-	.ascii "Haribote OS.\0"
+	.ascii "(%d, %d)\0"
 	.text
 	.balign 2
 .globl _HariMain
@@ -11,39 +9,60 @@ LC1:
 _HariMain:
 	pushl	%ebp
 	movl	%esp, %ebp
+	pushl	%edi
+	pushl	%esi
+	pushl	%ebx
+	leal	-316(%ebp), %ebx
+	subl	$304, %esp
 	call	_init_palette
 	movswl	4086,%eax
 	pushl	%eax
 	movswl	4084,%eax
 	pushl	%eax
 	pushl	4088
-	call	_init_screen
+	call	_int_screen8
+	movl	$2, %ecx
+	movswl	4084,%eax
+	leal	-16(%eax), %edx
+	movl	%edx, %eax
+	cltd
+	idivl	%ecx
+	movswl	4086,%edx
+	subl	$44, %edx
+	movl	%eax, %edi
+	movl	%edx, %eax
+	pushl	$14
+	cltd
+	idivl	%ecx
+	pushl	%ebx
+	movl	%eax, %esi
+	call	_init_mouse_cursor8
+	pushl	$16
+	pushl	%ebx
+	leal	-60(%ebp), %ebx
+	pushl	%esi
+	pushl	%edi
+	pushl	$16
+	pushl	$16
+	movswl	4084,%eax
+	pushl	%eax
+	pushl	4088
+	call	_putblock8_8
+	addl	$52, %esp
+	pushl	%esi
+	pushl	%edi
 	pushl	$LC0
+	pushl	%ebx
+	call	_sprintf
+	pushl	%ebx
 	pushl	$7
-	pushl	$8
-	pushl	$8
-	movswl	4084,%eax
-	pushl	%eax
-	pushl	4088
-	call	_putfonts8_asc
-	addl	$36, %esp
-	pushl	$LC1
 	pushl	$0
-	pushl	$31
-	pushl	$31
+	pushl	$0
 	movswl	4084,%eax
 	pushl	%eax
 	pushl	4088
 	call	_putfonts8_asc
-	pushl	$LC1
-	pushl	$7
-	pushl	$30
-	pushl	$30
-	movswl	4084,%eax
-	pushl	%eax
-	pushl	4088
-	call	_putfonts8_asc
-	addl	$48, %esp
+	addl	$40, %esp
 L2:
 	call	_io_hlt
 	jmp	L2
@@ -212,9 +231,9 @@ L26:
 	popl	%ebp
 	ret
 	.balign 2
-.globl _init_screen
-	.def	_init_screen;	.scl	2;	.type	32;	.endef
-_init_screen:
+.globl _int_screen8
+	.def	_int_screen8;	.scl	2;	.type	32;	.endef
+_int_screen8:
 	pushl	%ebp
 	movl	%esp, %ebp
 	pushl	%edi
@@ -491,6 +510,135 @@ L51:
 	cmpb	$0, (%ebx)
 	jne	L51
 	jmp	L53
+	.data
+_cursor.1:
+	.ascii "**************.."
+	.ascii "*OOOOOOOOOOO*..."
+	.ascii "*OOOOOOOOOO*...."
+	.ascii "*OOOOOOOOO*....."
+	.ascii "*OOOOOOOO*......"
+	.ascii "*OOOOOOO*......."
+	.ascii "*OOOOOOO*......."
+	.ascii "*OOOOOOOO*......"
+	.ascii "*OOOO**OOO*....."
+	.ascii "*OOO*..*OOO*...."
+	.ascii "*OO*....*OOO*..."
+	.ascii "*O*......*OOO*.."
+	.ascii "**........*OOO*."
+	.ascii "*..........*OOO*"
+	.ascii "............*OO*"
+	.ascii ".............***"
+	.text
+	.balign 2
+.globl _init_mouse_cursor8
+	.def	_init_mouse_cursor8;	.scl	2;	.type	32;	.endef
+_init_mouse_cursor8:
+	pushl	%ebp
+	movl	%esp, %ebp
+	pushl	%edi
+	pushl	%esi
+	pushl	%ebx
+	subl	$20, %esp
+	movb	12(%ebp), %al
+	movb	%al, -13(%ebp)
+	movl	$0, -20(%ebp)
+	movl	$0, -24(%ebp)
+	movl	$0, -28(%ebp)
+	movl	$0, -32(%ebp)
+L71:
+	movl	-24(%ebp), %ebx
+	movl	-28(%ebp), %ecx
+	movl	-32(%ebp), %edx
+	movl	-20(%ebp), %esi
+	addl	8(%ebp), %ebx
+	addl	8(%ebp), %ecx
+	addl	8(%ebp), %edx
+	xorl	%edi, %edi
+	addl	$_cursor.1, %esi
+L70:
+	movsbl	(%esi),%eax
+	cmpl	$46, %eax
+	je	L66
+	cmpl	$46, %eax
+	jg	L69
+	cmpl	$42, %eax
+	je	L64
+L61:
+	incl	%edi
+	addl	$16, %esi
+	incl	%ebx
+	incl	%ecx
+	incl	%edx
+	cmpl	$15, %edi
+	jle	L70
+	incl	-20(%ebp)
+	addl	$16, -24(%ebp)
+	addl	$16, -28(%ebp)
+	addl	$16, -32(%ebp)
+	cmpl	$15, -20(%ebp)
+	jle	L71
+	addl	$20, %esp
+	popl	%ebx
+	popl	%esi
+	popl	%edi
+	popl	%ebp
+	ret
+L64:
+	movb	$0, (%edx)
+	jmp	L61
+L69:
+	cmpl	$79, %eax
+	jne	L61
+	movb	$7, (%ecx)
+	jmp	L61
+L66:
+	movb	-13(%ebp), %al
+	movb	%al, (%ebx)
+	jmp	L61
+	.balign 2
+.globl _putblock8_8
+	.def	_putblock8_8;	.scl	2;	.type	32;	.endef
+_putblock8_8:
+	pushl	%ebp
+	movl	%esp, %ebp
+	pushl	%edi
+	pushl	%esi
+	xorl	%esi, %esi
+	pushl	%ebx
+	pushl	%eax
+	cmpl	20(%ebp), %esi
+	jge	L88
+L86:
+	xorl	%ebx, %ebx
+	cmpl	16(%ebp), %ebx
+	jge	L90
+	movl	32(%ebp), %eax
+	leal	(%eax,%esi), %ecx
+L85:
+	movl	28(%ebp), %eax
+	movl	24(%ebp), %edx
+	addl	%esi, %eax
+	addl	%ebx, %edx
+	imull	12(%ebp), %eax
+	movl	8(%ebp), %edi
+	addl	%edx, %eax
+	movb	(%ecx), %dl
+	incl	%ebx
+	movb	%dl, (%eax,%edi)
+	addl	36(%ebp), %ecx
+	cmpl	16(%ebp), %ebx
+	jl	L85
+L90:
+	incl	%esi
+	cmpl	20(%ebp), %esi
+	jl	L86
+L88:
+	popl	%edi
+	popl	%ebx
+	popl	%esi
+	popl	%edi
+	popl	%ebp
+	ret
 	.def	_io_store_eflags;	.scl	2;	.type	32;	.endef
 	.def	_io_out8;	.scl	2;	.type	32;	.endef
 	.def	_io_cli;	.scl	2;	.type	32;	.endef
@@ -498,5 +646,8 @@ L51:
 	.def	_set_palette;	.scl	2;	.type	32;	.endef
 	.def	_io_hlt;	.scl	2;	.type	32;	.endef
 	.def	_putfonts8_asc;	.scl	2;	.type	32;	.endef
-	.def	_init_screen;	.scl	2;	.type	32;	.endef
+	.def	_sprintf;	.scl	2;	.type	32;	.endef
+	.def	_putblock8_8;	.scl	2;	.type	32;	.endef
+	.def	_init_mouse_cursor8;	.scl	2;	.type	32;	.endef
+	.def	_int_screen8;	.scl	2;	.type	32;	.endef
 	.def	_init_palette;	.scl	2;	.type	32;	.endef
