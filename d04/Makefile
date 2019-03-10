@@ -28,17 +28,14 @@ ipl10.bin : ipl10.nas Makefile
 asmhead.bin : asmhead.nas Makefile
 	$(NASK) asmhead.nas asmhead.bin asmhead.lst
 
-bootpack.gas : bootpack.c Makefile
-	$(CC1) -o bootpack.gas bootpack.c
+%.gas : %.c Makefile
+	$(CC1) -o $*.gas $*.c
 
-bootpack.nas : bootpack.gas Makefile
-	$(GAS2NASK) bootpack.gas bootpack.nas
+%.nas : %.gas Makefile
+	$(GAS2NASK) $*.gas $*.nas
 
-bootpack.obj : bootpack.nas Makefile
-	$(NASK) bootpack.nas bootpack.obj bootpack.lst
-
-naskfunc.obj : naskfunc.nas Makefile
-	$(NASK) naskfunc.nas naskfunc.obj naskfunc.lst
+%.obj : %.nas Makefile
+	$(NASK) $*.nas $*.obj $*.lst
 
 hankaku.bin : hankaku.txt Makefile
 	$(MAKEFONT) hankaku.txt hankaku.bin
@@ -46,9 +43,9 @@ hankaku.bin : hankaku.txt Makefile
 hankaku.obj : hankaku.bin Makefile
 	$(BIN2OBJ) hankaku.bin hankaku.obj _hankaku
 
-bootpack.bim : bootpack.obj naskfunc.obj hankaku.obj Makefile
+bootpack.bim : bootpack.obj graphic.obj dsctbl.obj naskfunc.obj hankaku.obj Makefile
 	$(OBJ2BIM) @$(RULEFILE) out:bootpack.bim stack:3136k map:bootpack.map \
-		bootpack.obj naskfunc.obj hankaku.obj
+		bootpack.obj graphic.obj dsctbl.obj naskfunc.obj hankaku.obj
 # 3MB+64KB=3136KB
 
 bootpack.hrb : bootpack.bim Makefile
