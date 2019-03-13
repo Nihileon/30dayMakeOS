@@ -7,6 +7,7 @@
 
 #include "bootpack.h"
 
+#define FLAGS_OVERRUN 0x0001
 
 void fifo8_init(struct FIFO8 *fifo, int size, unsigned char *buf)
 {
@@ -19,7 +20,6 @@ void fifo8_init(struct FIFO8 *fifo, int size, unsigned char *buf)
     return;
 }
 
-#define FLAGS_OVERRUN 0x0001
 
 //向fifo传入数据并保存
 int fifo8_put(struct FIFO8 *fifo, unsigned char data)
