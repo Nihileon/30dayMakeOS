@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.nas": "gas",
+        "bootpack.h": "c"
+    },
+    "python.linting.pylintEnabled": true
+}
