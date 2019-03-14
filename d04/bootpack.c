@@ -10,7 +10,7 @@
 struct MOUSE_DEC {
     unsigned char buf[3];
     unsigned char phase;
-    int x, y, btn;//btn是左右中键
+    int x, y, btn; // btn是左右中键
 };
 
 extern struct FIFO8 keyfifo;
@@ -95,11 +95,13 @@ void HariMain(void)
                 sprintf(s, "(%3d, %3d)", mx, my);
                 boxfill8(binfo->vram, binfo->scrnx, COL8_008484, 0, 0, 79,
                          15); // 隐藏坐标
-                putfonts8_asc(binfo->vram, binfo->scrnx, 0, 0, COL8_FFFFFF, s); //显示坐标
-                putblock8_8(binfo->vram, binfo->scrnx, 16, 16, mx, my, mcursor, //显示鼠标
+                putfonts8_asc(binfo->vram, binfo->scrnx, 0, 0, COL8_FFFFFF,
+                              s); //显示坐标
+                putblock8_8(binfo->vram, binfo->scrnx, 16, 16, mx, my,
+                            mcursor, //显示鼠标
                             16);
             }
-        }else{
+        } else {
             io_stihlt();
         }
     }
@@ -173,13 +175,14 @@ int mouse_decode(struct MOUSE_DEC *mdec, unsigned char dat)
     case 3:
         mdec->buf[2] = dat;
         mdec->phase = 1;
-        mdec->btn = mdec->buf[0] & 0x07; // buf[0] & 00000111 左右中键是buf[0]的后三位
+        mdec->btn =
+            mdec->buf[0] & 0x07; // buf[0] & 00000111 左右中键是buf[0]的后三位
         mdec->x = mdec->buf[1];
         mdec->y = mdec->buf[2];
-        if ((mdec->buf[0] & 0x10) != 0) { //00010000
+        if ((mdec->buf[0] & 0x10) != 0) { // 00010000
             mdec->x |= 0xffffff00;
         }
-        if ((mdec->buf[0] & 0x20) != 0) { //00100000
+        if ((mdec->buf[0] & 0x20) != 0) { // 00100000
             mdec->y |= 0xffffff00;
         }
         mdec->y = -mdec->y; // 鼠标移动方向与y轴相反

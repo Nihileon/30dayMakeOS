@@ -20,7 +20,6 @@ void fifo8_init(struct FIFO8 *fifo, int size, unsigned char *buf)
     return;
 }
 
-
 //向fifo传入数据并保存
 int fifo8_put(struct FIFO8 *fifo, unsigned char data)
 {
@@ -44,7 +43,7 @@ int fifo8_get(struct FIFO8 *fifo)
     }
     data = fifo->buf[fifo->q];
     fifo->q++;
-    if(fifo->q == fifo->size){
+    if (fifo->q == fifo->size) {
         fifo->q = 0;
     }
     fifo->free++;
