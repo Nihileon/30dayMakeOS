@@ -40,7 +40,7 @@ void inthandler21(int *esp)
     return;
 }
 
-struct FIFO *mousefifo;
+struct FIFO8 *mousefifo;
 
 void inthandler2c(int *esp)
 {

@@ -36,12 +36,11 @@ int fifo8_put(struct FIFO8 *fifo, unsigned char data)
     fifo->free--;
     return 0;
 }
-
 int fifo8_get(struct FIFO8 *fifo)
 {
     int data;
     if (fifo->free == fifo->size) {
-        return 1;
+        return -1;
     }
     data = fifo->buf[fifo->q];
     fifo->q++;
