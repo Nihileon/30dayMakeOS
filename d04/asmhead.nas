@@ -15,7 +15,7 @@ VRAM	EQU		0x0ff8			; 图像缓冲区的起始地址
 
 		ORG		0xc200			;  这个的程序要被装载的内存地址
 
-; 画面モードを設定
+; 画面設定
 
 		MOV		AL,0x13			; VGA显卡，320x200x8bit
 		MOV		AH,0x00
@@ -163,8 +163,8 @@ GDT0:
 		DW		0
 ; 相当于LGDT指令, 通知GDT0有GDT存在, 在GDT0里，写入了16位的段上限，和32位的段起始地址
 GDTR0:
-		DW		8*3-1
-		DD		GDT0
+		DW		8*3-1 	;2个字节
+		DD		GDT0 	;四个字节
 
 		ALIGNB	16
 bootpack:

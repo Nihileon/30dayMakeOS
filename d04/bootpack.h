@@ -25,11 +25,14 @@ int io_in8(int port);
 void io_out8(int port, int data);
 int io_load_eflags(void);
 void io_store_eflags(int eflags);
+int load_cr0(void);
+void store_cr0(int cr0);
 void load_gdtr(int limit, int addr);
 void load_idtr(int limit, int addr);
 void asm_inthandler21(void);
 void asm_inthandler27(void);
 void asm_inthandler2c(void);
+unsigned int memtest_sub(unsigned int start, unsigned int end);
 
 /* fifo.c */
 // p代表下一个数据的写入地址, q代表下一个数据的读出地址, buf是缓冲区地址
@@ -124,3 +127,74 @@ void inthandler2c(int *esp);
 #define PIC1_ICW2 0x00a1
 #define PIC1_ICW3 0x00a1
 #define PIC1_ICW4 0x00a1
+
+/* keyboard.c */
+void inthandler21(int *esp);
+void wait_KBC_sendready(void);
+void init_keyboard(void);
+extern struct FIFO8 keyfifo;
+#define PORT_KEYDAT 0x0060
+#define PORT_KEYCMD 0x0064
+
+/* mouse.c */
+struct MOUSE_DEC {
+    unsigned char buf[3], phase;
+    int x, y, btn; //左右中键
+};
+void inthandler2c(int *esp);
+void enable_mouse(struct MOUSE_DEC *mdec);
+int mouse_decode(struct MOUSE_DEC *mdec, unsigned char dat);
+extern struct FIFO8 mousefifo;
+
+//memory.c
+unsigned int memtest(unsigned int start, unsigned int end);
+
+#define MEMMAN_FREES 4090
+#define MEMMAN_ADDR    0X003C0000
+//可用信息
+struct FREEINFO {
+    unsigned int addr, size;
+};
+
+//内存管理
+struct MEMMAN {
+    int frees, maxfrees, lostsize, losts;
+    struct FREEINFO free[MEMMAN_FREES];
+};
+
+void memman_init(struct MEMMAN *man);
+unsigned int memman_total(struct MEMMAN *man);
+unsigned int memman_alloc(struct MEMMAN *man, unsigned int size);
+int memman_free(struct MEMMAN *man, unsigned int addr, unsigned int size);
+unsigned int memman_alloc_4k(struct MEMMAN *man, unsigned int size);
+int memman_free_4k(struct MEMMAN *man, unsigned int addr, unsigned int size);
+
+//sheet.c
+#define MAX_SHEETS 256
+struct SHEET{
+    unsigned char *buf;
+    int bxsize, bysize; // 图层整体大小
+    int vx0, vy0; // 位置坐标
+    int col_inv; //透明色色号
+    int height; //图层高度
+    int flags; //图层的设定信息
+};
+
+struct SHTCTL {
+    unsigned char *vram;
+    int xsize, ysize;                 // 画面大小
+    int top;                          //最上层的高度
+    struct SHEET *sheets[MAX_SHEETS]; // 按照升序排列存放图层
+    struct SHEET sheets0[MAX_SHEETS]; //排序前的图层
+};
+
+struct SHTCTL *shtctl_init(struct MEMMAN *memman, unsigned char *vram,
+                           int xsize, int ysize);
+struct SHEET *sheet_alloc(struct SHTCTL *ctl);
+void sheet_setbuf(struct SHEET *sht, unsigned char *buf, int xsize, int ysize,
+                  int col_inv);
+void sheet_updown(struct SHTCTL *ctl, struct SHEET *sht, int height);
+void sheet_refresh(struct SHTCTL *ctl, struct SHEET *sht, int bx0, int by0,
+                   int bx1, int by1);
+void sheet_slide(struct SHTCTL *ctl, struct SHEET *sht, int vx0, int vy0);
+void sheet_free(struct SHTCTL *ctl, struct SHEET *sht);

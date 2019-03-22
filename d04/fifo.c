@@ -24,7 +24,7 @@ void fifo8_init(struct FIFO8 *fifo, int size, unsigned char *buf)
 int fifo8_put(struct FIFO8 *fifo, unsigned char data)
 {
     if (fifo->free == 0) {
-        fifo->flags = FLAGS_OVERRUN;
+        fifo->flags |= FLAGS_OVERRUN;
         return -1;
     }
     fifo->buf[fifo->p] = data;

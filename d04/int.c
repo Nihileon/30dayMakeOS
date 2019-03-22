@@ -27,31 +27,6 @@ void init_pic(void)
     return;
 }
 
-#define PORT_KEYDAT 0x0060
-
-struct FIFO8 keyfifo;
-
-void inthandler21(int *esp)
-{
-    unsigned char data;
-    io_out8(PIC0_OCW2, 0x61);
-    data = io_in8(PORT_KEYDAT);
-    fifo8_put(&keyfifo,data);
-    return;
-}
-
-struct FIFO8 *mousefifo;
-
-void inthandler2c(int *esp)
-{
-    unsigned char data;
-    io_out8(PIC1_OCW2, 0x64); /* IRQ-12受付完了をPIC1に通知 */
-    io_out8(PIC0_OCW2, 0x62); /* IRQ-02受付完了をPIC0に通知 */
-    data = io_in8(PORT_KEYDAT);
-    fifo8_put(&mousefifo, data);
-    return;
-}
-
 /* PIC0中断的不完整策略 */
 /* 这个中断在Athlon64X2上通过芯片组提供的便利，只需执行一次 */
 /* 这个中断只是接收，不执行任何操作 */
