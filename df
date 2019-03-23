@@ -1,0 +1,523 @@
+[33mcommit c4bd903ea929d43c64f3f7dc24653f5b4ae6f969[m[33m ([m[1;36mHEAD -> [m[1;32mmyOs[m[33m, [m[1;31morigin/myOs[m[33m)[m
+Author: nihileon <ningbaixuan@163.com>
+Date:   Sat Mar 23 09:16:22 2019 +0800
+
+    renew documents
+
+[33mcommit d68a9b7b05be7d1d2b8946725ff54881ba14afad[m
+Author: ningbaixuan@163.com <6077521+Animam@users.noreply.github.com>
+Date:   Fri Mar 22 17:51:20 2019 +0800
+
+    end of day 10
+
+[33mcommit 8e2d5f4d0f6288d8bc2be0ffb09a8f3fb806184d[m
+Author: ningbaixuan@163.com <6077521+Animam@users.noreply.github.com>
+Date:   Thu Mar 14 14:51:09 2019 +0800
+
+    end of day 8
+
+[33mcommit e4c9a415cd2fcb651ec8bc6a961ea5065647e9d9[m
+Author: ningbaixuan@163.com <6077521+Animam@users.noreply.github.com>
+Date:   Thu Mar 14 09:29:43 2019 +0800
+
+    day 8 c
+
+[33mcommit 1d79af905cc938a73a03a0926edba7547d48d662[m
+Author: ningbaixuan@163.com <6077521+Animam@users.noreply.github.com>
+Date:   Wed Mar 13 16:22:09 2019 +0800
+
+    end of day7
+
+[33mcommit a3362591739f2a9a42fc56453fc96f726f79610f[m
+Author: ningbaixuan@163.com <6077521+Animam@users.noreply.github.com>
+Date:   Wed Mar 13 14:53:39 2019 +0800
+
+    day7 e
+
+[33mcommit 7c35474d5b0dcc77169698a9faf8469e383c562d[m
+Author: ningbaixuan@163.com <6077521+Animam@users.noreply.github.com>
+Date:   Wed Mar 13 14:53:25 2019 +0800
+
+    day7 e
+
+[33mcommit 6191018c129cfdc9ff33bd24a28895d84d0af4aa[m
+Author: ningbaixuan@163.com <6077521+Animam@users.noreply.github.com>
+Date:   Sun Mar 10 14:50:33 2019 +0800
+
+    day6.1
+
+[33mcommit 6e1e8521ae2ae06d22e772b7c6ff3b9ddbc19882[m
+Author: nihileon <ningbaixuan@163.com>
+Date:   Wed Mar 6 16:38:11 2019 +0800
+
+     d5 finished
+
+[33mcommit cbb67d8f4cf623b59cf9b1f01ec534d7ef6531ef[m
+Author: ningbaixuan@163.com <6077521+Animam@users.noreply.github.com>
+Date:   Wed Mar 6 15:59:07 2019 +0800
+
+    i am just tired
+
+[33mcommit aae9e69e7235698150cb29d7abc5a461976ed7b1[m
+Author: ningbaixuan@163.com <6077521+Animam@users.noreply.github.com>
+Date:   Tue Mar 5 21:33:20 2019 +0800
+
+    implemented output string
+
+[33mcommit ae0713455f21fe1fa6a0687779f8ab3be6d19fbd[m
+Author: ningbaixuan@163.com <6077521+Animam@users.noreply.github.com>
+Date:   Tue Mar 5 20:47:06 2019 +0800
+
+    day5 4
+
+[33mcommit 2254d7e814484035ce7a0d7fb45196c01f036f1a[m
+Author: ningbaixuan@163.com <6077521+Animam@users.noreply.github.com>
+Date:   Tue Mar 5 20:09:23 2019 +0800
+
+    day 4 finished
+
+[33mcommit bafbe6aa6d7f31c3f10a8dde0a7afe1844b51305[m
+Author: ningbaixuan@163.com <6077521+Animam@users.noreply.github.com>
+Date:   Mon Mar 4 21:21:02 2019 +0800
+
+    day3  finished
+
+[33mcommit f07cccf6caf660d48fc942dd68bea7c8c431092f[m
+Author: nihileon <ningbaixuan@163.com>
+Date:   Sun Mar 3 18:13:15 2019 +0800
+
+    end of day2
+
+[33mcommit e4319bd1ac27dee15953e422e71a41b1a8d3ed9b[m
+Author: nihileon <ningbaixuan@163.com>
+Date:   Sun Mar 3 14:36:16 2019 +0800
+
+    end of day1
+
+[33mcommit b146e2a2743466d06937f36bd4818cf8368a60ee[m
+Author: nihileon <ningbaixuan@163.com>
+Date:   Sun Mar 3 13:45:52 2019 +0800
+
+    end of day 0
+
+[33mcommit 3d893c3ee2698ef0133af66ec3d5b00ab1671279[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Author: ningbaixuan@163.com <6077521+Animam@users.noreply.github.com>
+Date:   Sun Mar 3 10:36:11 2019 +0800
+
+    mv file
+
+[33mcommit b308a9e295f2b9338faeb324477c7f60df37e293[m
+Author: 郭宇翔 <yourtion@gmail.com>
+Date:   Wed Aug 8 00:26:36 2018 +0800
+
+    fix imgout BPB data error
+    
+    fixed #3
+
+[33mcommit a28136d3de82237474a60400eeab2f44a04a7ef1[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Tue May 31 18:13:22 2016 +0800
+
+    bug fix
+
+[33mcommit 438eeb5135d6d5ecb7d511aea2b445e6aa5b6a04[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Sat May 21 00:37:05 2016 +0800
+
+    Update README
+
+[33mcommit d9d034cf435b0178dc44e62bb83bf1cc70a47b4a[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Sat May 21 00:31:13 2016 +0800
+
+    update
+
+[33mcommit c8be7ff36fe1fc684175f9368974079b311d09eb[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Sat May 21 00:30:29 2016 +0800
+
+    update README
+
+[33mcommit 140774a2937909c6f3de56bcfd4fd75809740465[m[33m ([m[1;33mtag: Day30[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Sat May 21 00:24:41 2016 +0800
+
+    bug fix
+
+[33mcommit 7c2fc6692785c1b53a6a38f7f20cfa9877e560a5[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Fri May 20 15:28:31 2016 +0800
+
+    add screen
+
+[33mcommit 636c1a8c3d21c25d01ea955c17dc47e0d1989d3e[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Fri May 20 15:16:20 2016 +0800
+
+    Update README
+
+[33mcommit c1778219135d4b895aabd96e029b9da9a8162df0[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Fri May 20 14:56:29 2016 +0800
+
+    整理
+
+[33mcommit febac10ebfb5dd7af2ecf60d4f23f95e3c301877[m[33m ([m[1;33mtag: harib27e[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Fri May 20 14:49:26 2016 +0800
+
+    IPL的改良
+
+[33mcommit 0e31ff06caa6cb7a2d14089515c63a62d4189690[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Fri May 20 14:27:07 2016 +0800
+
+    bug fix
+
+[33mcommit 08d19d7512b030fa3eb1961c4baa454b9570dd53[m[33m ([m[1;33mtag: harib27d[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Fri May 20 14:05:13 2016 +0800
+
+    图片阅览器
+
+[33mcommit b2d31a8e54644b4416befefa069a958cdd2fd4d0[m[33m ([m[1;33mtag: harib27c[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Fri May 20 13:38:43 2016 +0800
+
+    MML播放器
+
+[33mcommit 72532c8cd7406f7d4bae1c73b7aacf0b9ddf73d1[m[33m ([m[1;33mtag: harib27b[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Fri May 20 12:03:41 2016 +0800
+
+    文本阅览器
+
+[33mcommit 3871740126956606ce99157f300d3f89d7ff00f3[m[33m ([m[1;33mtag: harib27a[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Fri May 20 11:01:41 2016 +0800
+
+    命令行计算器
+
+[33mcommit 70b335278d015965e1d75d316cc2f02d33caf22d[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Fri May 20 10:54:34 2016 +0800
+
+    bug fix
+
+[33mcommit 2c262f986d9ed842c08e243781716b7d47f39ed6[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Fri May 20 10:44:09 2016 +0800
+
+    Add 30 day code
+
+[33mcommit 6b0457bed643480d6c7cfc28d5f9cefce56061c1[m[33m ([m[1;33mtag: harib26e[m[33m, [m[1;33mtag: Day29[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Thu May 19 14:22:52 2016 +0800
+
+    外星人游戏
+
+[33mcommit 0adab9385e465afaefb9629e9f8a64915dbd71df[m[33m ([m[1;33mtag: harib26d[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Thu May 19 14:13:37 2016 +0800
+
+    bball
+
+[33mcommit 73b7421cf2d57b3018cf9f22193bbc6ae23eb965[m[33m ([m[1;33mtag: harib26c[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Thu May 19 14:08:59 2016 +0800
+
+    非矩形窗口
+
+[33mcommit 203dd63152150f1863a160b617cd13903b2cb68e[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Thu May 19 14:05:01 2016 +0800
+
+    标准函数
+
+[33mcommit 9df2b90ad36019100425b04f0b50fa62a7954706[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Thu May 19 13:07:37 2016 +0800
+
+    clean files
+
+[33mcommit 633089d320b2be09708b9cc89085040cf8073624[m[33m ([m[1;33mtag: harib26b[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Thu May 19 13:01:06 2016 +0800
+
+    文件压缩
+
+[33mcommit 41a0252634dc00686e2f25570a52b7efc9b64229[m[33m ([m[1;33mtag: harib26a[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Thu May 19 12:27:28 2016 +0800
+
+    修复bug
+
+[33mcommit 5a064e20c253cdac65576821cf9ea7987cde0a57[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Thu May 19 12:27:14 2016 +0800
+
+    Add 29 day code
+
+[33mcommit d925a8d99230ef362650e56d31c3f58b39514afb[m[33m ([m[1;33mtag: Day28[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Wed May 18 13:20:49 2016 +0800
+
+    update
+
+[33mcommit 7497159026b52b78bbaaf1570b1c0db0fd520c07[m[33m ([m[1;33mtag: harib25g[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Wed May 18 13:08:09 2016 +0800
+
+    日文文字显示（3）
+
+[33mcommit fcd87ee3020771b5a51a1cb8837caa124fe36784[m[33m ([m[1;33mtag: harib25f[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Wed May 18 12:58:00 2016 +0800
+
+    日文文字显示（2）
+
+[33mcommit ac8b6b14112ebb76b657838a4cdbcc8438994013[m[33m ([m[1;33mtag: harib25e[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Wed May 18 12:43:01 2016 +0800
+
+    日文文字显示（1）
+
+[33mcommit 86791cd7f4cd939ff8f4f0fcf2befdc78d03d824[m[33m ([m[1;33mtag: harib25d[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Wed May 18 11:41:34 2016 +0800
+
+    命令行API
+
+[33mcommit 9231ce4a386e43ae1173a75562f47778a03b5ae9[m[33m ([m[1;33mtag: harib25c[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Wed May 18 11:31:29 2016 +0800
+
+    文件操作API
+
+[33mcommit 7b5d69c7c85779d0ba808f321767fb7b82a7db7b[m[33m ([m[1;33mtag: harib25b[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Wed May 18 11:02:51 2016 +0800
+
+    alloca（2）
+
+[33mcommit 1bcf500c142422bb33af20087a7b52d46d02ce1e[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Wed May 18 10:54:21 2016 +0800
+
+    bug fix
+
+[33mcommit 6bd4307e951641e2bbfa6af44ab4df4118ce267d[m[33m ([m[1;33mtag: harib25a[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Wed May 18 10:52:21 2016 +0800
+
+    alloca（1）
+
+[33mcommit c65ca780b37fed714e9cd0e79e882473f6eb65ed[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Wed May 18 10:25:37 2016 +0800
+
+    Add 28 day code
+
+[33mcommit f025b0083fcd1aed1b1742fb6d3dbc9fb657a5c6[m[33m ([m[1;33mtag: harib24g[m[33m, [m[1;33mtag: Day27[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Tue May 17 13:30:27 2016 +0800
+
+    整理make环境
+
+[33mcommit a1129763ddcddd451c4d3d4dcaf8fd984586e375[m[33m ([m[1;33mtag: harib24f[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Tue May 17 12:57:21 2016 +0800
+
+    库
+
+[33mcommit d63b8acd911fdd04d5efa5c18abeb3ca18c49a34[m[33m ([m[1;33mtag: harib24e[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Tue May 17 12:44:39 2016 +0800
+
+    优化应用程序的大小
+
+[33mcommit 575c4ffce8fe1269ce7847552563516604ff56be[m[33m ([m[1;33mtag: harib24d[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Tue May 17 12:39:47 2016 +0800
+
+    保护应用程序（2）
+
+[33mcommit f3f9a6c1785b9d3c0742690f634a644dfeba9828[m[33m ([m[1;33mtag: harib24c[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Tue May 17 12:30:15 2016 +0800
+
+    保护应用程序（1）
+
+[33mcommit 01bbd98aa82d48cd7365dba63b3b0a5a0b8a8245[m[33m ([m[1;33mtag: harib24b[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Tue May 17 12:24:03 2016 +0800
+
+    应用程序运行时关闭命令行窗口
+
+[33mcommit 233fe16825034f1869ba09dfcfb822b9485ca250[m[33m ([m[1;33mtag: harib24a[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Tue May 17 11:09:20 2016 +0800
+
+    先来修复bug
+
+[33mcommit 8785b4602186fa8f3d51bbb51c3c4b499f9bd11f[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Tue May 17 11:00:38 2016 +0800
+
+    Add 27 day code
+
+[33mcommit 02e307eae1bd508babdbb653ce975566bbb29755[m[33m ([m[1;33mtag: harib23j[m[33m, [m[1;33mtag: Day26[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Mon May 16 13:10:25 2016 +0800
+
+    ncst命令
+
+[33mcommit 87b1d4027cde8460dbad12d818d363b1a3d84595[m[33m ([m[1;33mtag: harib23i[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Mon May 16 12:39:56 2016 +0800
+
+    start命令
+
+[33mcommit 0c2b6c5934e067bc3d83396b8506df795d48dba8[m[33m ([m[1;33mtag: harib23h[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Mon May 16 12:36:44 2016 +0800
+
+    关闭命令行窗口（2）
+
+[33mcommit 884ddf242ec8a554d0be5d643b978e0d32e652b6[m[33m ([m[1;33mtag: harib23g[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Mon May 16 11:59:43 2016 +0800
+
+    关闭命令行窗口（1）
+
+[33mcommit 6b7a4a13b058f1fe9eb9b623b45d0c8c8b0859d6[m[33m ([m[1;33mtag: harib23f[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Mon May 16 11:46:33 2016 +0800
+
+    增加更多的命令行窗口
+
+[33mcommit 935af85346fea7ffcd05a2e770df6cb658ecd04f[m[33m ([m[1;33mtag: harib23e[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Mon May 16 11:42:37 2016 +0800
+
+    启动时只打开一个命令行窗口
+
+[33mcommit d2fc0dc0f53dc7d87ea7caf405a49aec864c989b[m[33m ([m[1;33mtag: harib23d[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Mon May 16 11:34:29 2016 +0800
+
+    提高窗口移动速度（4）
+
+[33mcommit e4a94836dddbccd3eea4ad6a4f6984eb0831bec0[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Mon May 16 11:29:54 2016 +0800
+
+    bug fix
+
+[33mcommit 68781eba2adf7ba2f41c69febc35f0118bb32520[m[33m ([m[1;33mtag: harib23c[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Mon May 16 11:25:47 2016 +0800
+
+    提高窗口移动速度（3）
+
+[33mcommit 883213696ffee371289e949b7e4e988d69521764[m[33m ([m[1;33mtag: harib23b[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Mon May 16 11:04:04 2016 +0800
+
+    提高窗口移动速度（2）
+
+[33mcommit 95dcc1402599690d4bbd3f55b1651efb5422cc97[m[33m ([m[1;33mtag: harib23a[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Mon May 16 10:54:13 2016 +0800
+
+    提高窗口移动速度（1）
+
+[33mcommit 9d45d34cce7f162a3687ab71fcf00ec2d0f5e261[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Mon May 16 10:44:14 2016 +0800
+
+    Add 26 day code
+
+[33mcommit b2dc361194ed59ccf7adb88b74a2043fd449caba[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Fri May 13 12:12:24 2016 +0800
+
+    删除无关文件
+
+[33mcommit a789f578a8e575fcee0e153d26a5b3dd85e3237f[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Fri May 13 12:09:07 2016 +0800
+
+    代码整理，错误修复
+
+[33mcommit 5bc0adee61f7bf4593aad9410d10809b88409170[m[33m ([m[1;33mtag: harib22j[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Fri May 13 11:54:11 2016 +0800
+
+    变得更像真正的操作系统（2）
+
+[33mcommit 95542da7f7204dd529dd4c6a71815e7056148aba[m[33m ([m[1;33mtag: harib22i[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Fri May 13 11:47:29 2016 +0800
+
+    变得更像真正的操作系统（1）
+
+[33mcommit 24945ddb181a49e24c5a1ecc8610e4d0ef96575c[m[33m ([m[1;33mtag: harib22h[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Fri May 13 11:30:45 2016 +0800
+
+    增加命令行窗口（4）
+
+[33mcommit d1e4c441491157f1f4d1eb894b31e7d1f7526425[m[33m ([m[1;33mtag: harib22g[m[33m, [m[1;33mtag: Day25[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Fri May 13 11:21:01 2016 +0800
+
+    增加命令行窗口（3）
+
+[33mcommit 34fc4eca27c17458024593eb834d1272312d99ad[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Fri May 13 11:18:02 2016 +0800
+
+    bug fix
+
+[33mcommit c512f3e3913a44f28aaaef12d128e1c675a52a78[m[33m ([m[1;33mtag: harib22f[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Fri May 13 11:08:20 2016 +0800
+
+    增加命令行窗口（2）
+
+[33mcommit d046ca64a489c8eeec1301da8fbcc423b90c1b3e[m[33m ([m[1;33mtag: harib22e[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Fri May 13 10:57:30 2016 +0800
+
+    增加命令行窗口（1）
+
+[33mcommit b30660628236fdd2440f8c33f044986ddd81eb72[m[33m ([m[1;33mtag: harib22d[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Fri May 13 10:48:03 2016 +0800
+
+    窗口初始位置
+
+[33mcommit c8a0464c520d7dac3f2f7294b52526ce41a8febd[m[33m ([m[1;33mtag: harib22c[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Fri May 13 10:45:55 2016 +0800
+
+    增加更多的颜色（2）
+
+[33mcommit 908570a673f24b1862d8bfa9cb05a44328d0de3d[m[33m ([m[1;33mtag: harib22b[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Fri May 13 10:38:37 2016 +0800
+
+    增加更多的颜色（1）
+
+[33mcommit d84bab78e1601f83ae7ba393f7b9b37c6497e6f7[m[33m ([m[1;33mtag: harib22a[m[33m)[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Fri May 13 10:32:51 2016 +0800
+
+    蜂鸣器发声
+
+[33mcommit 907b8c61ce9817222d4633fbf0e96a99201217fb[m
+Author: Yourtion <yourtion@gmail.com>
+Date:   Fri May 13 10:23:23 2016 +0800
+
+    Add 25 day code

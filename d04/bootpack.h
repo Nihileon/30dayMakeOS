@@ -146,11 +146,11 @@ void enable_mouse(struct MOUSE_DEC *mdec);
 int mouse_decode(struct MOUSE_DEC *mdec, unsigned char dat);
 extern struct FIFO8 mousefifo;
 
-//memory.c
+// memory.c
 unsigned int memtest(unsigned int start, unsigned int end);
 
 #define MEMMAN_FREES 4090
-#define MEMMAN_ADDR    0X003C0000
+#define MEMMAN_ADDR 0X003C0000
 //可用信息
 struct FREEINFO {
     unsigned int addr, size;
@@ -169,32 +169,25 @@ int memman_free(struct MEMMAN *man, unsigned int addr, unsigned int size);
 unsigned int memman_alloc_4k(struct MEMMAN *man, unsigned int size);
 int memman_free_4k(struct MEMMAN *man, unsigned int addr, unsigned int size);
 
-//sheet.c
+// sheet.c
 #define MAX_SHEETS 256
-struct SHEET{
+struct SHEET {
     unsigned char *buf;
-    int bxsize, bysize; // 图层整体大小
-    int vx0, vy0; // 位置坐标
-    int col_inv; //透明色色号
-    int height; //图层高度
-    int flags; //图层的设定信息
+    int bxsize, bysize, vx0, vy0, col_inv, height, flags;
+    struct SHTCTL *ctl;
 };
-
 struct SHTCTL {
     unsigned char *vram;
-    int xsize, ysize;                 // 画面大小
-    int top;                          //最上层的高度
-    struct SHEET *sheets[MAX_SHEETS]; // 按照升序排列存放图层
-    struct SHEET sheets0[MAX_SHEETS]; //排序前的图层
+    int xsize, ysize, top;
+    struct SHEET *sheets[MAX_SHEETS];
+    struct SHEET sheets0[MAX_SHEETS];
 };
-
 struct SHTCTL *shtctl_init(struct MEMMAN *memman, unsigned char *vram,
                            int xsize, int ysize);
 struct SHEET *sheet_alloc(struct SHTCTL *ctl);
 void sheet_setbuf(struct SHEET *sht, unsigned char *buf, int xsize, int ysize,
                   int col_inv);
-void sheet_updown(struct SHTCTL *ctl, struct SHEET *sht, int height);
-void sheet_refresh(struct SHTCTL *ctl, struct SHEET *sht, int bx0, int by0,
-                   int bx1, int by1);
-void sheet_slide(struct SHTCTL *ctl, struct SHEET *sht, int vx0, int vy0);
-void sheet_free(struct SHTCTL *ctl, struct SHEET *sht);
+void sheet_updown(struct SHEET *sht, int height);
+void sheet_refresh(struct SHEET *sht, int bx0, int by0, int bx1, int by1);
+void sheet_slide(struct SHEET *sht, int vx0, int vy0);
+void sheet_free(struct SHEET *sht);
