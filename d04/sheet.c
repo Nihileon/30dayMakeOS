@@ -48,6 +48,8 @@ void sheet_setbuf(struct SHEET *sht, unsigned char *buf, int xsize, int ysize,
 
 void sheet_refreshsub(struct SHTCTL *ctl, int vx0, int vy0, int vx1, int vy1)
 {
+    //bx0,by0 是鼠标的刷新起始位置
+    //vx0,vy0是图层的起始位置
     int h, bx, by, vx, vy, bx0, by0, bx1, by1;
     unsigned char *buf, c;
     unsigned char *vram = ctl->vram;
