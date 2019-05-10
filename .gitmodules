@@ -1,0 +1,3 @@
+[submodule "my30days"]
+      path = my30
+      url = git@github.com:Nihileon/my30days.git
